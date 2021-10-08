@@ -7,6 +7,7 @@ eureka:
       defaultZone: http://localhost:8761/eureka
 
 zuul:
+  sensitiveHeaders: Cookie,Set-Cookie
   routes:
     pessoa:
       service-id: ms-pessoa
@@ -15,6 +16,13 @@ zuul:
     folha-pagamento:
       service-id: ms-folha-pagamento
       path: /ms-folha-pagamento/**
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/auth/realms/studyapplication #keycloak
 
 hystrix:
   command:
