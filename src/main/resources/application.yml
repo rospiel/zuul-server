@@ -4,7 +4,8 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      #defaultZone: http://localhost:8761/eureka
+      defaultZone: http://eureka-server:8761/eureka
 
 zuul:
   sensitiveHeaders: Cookie,Set-Cookie
@@ -22,7 +23,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8080/auth/realms/studyapplication #keycloak
+          #issuer-uri: http://localhost:8080/auth/realms/studyapplication #keycloak
+          issuer-uri: http://keycloak:8080/auth/realms/studyapplication #keycloak
 
 hystrix:
   command:
